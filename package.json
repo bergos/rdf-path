@@ -1,0 +1,39 @@
+{
+  "name": "rdf-path",
+  "version": "0.0.0",
+  "description": "Path structure for RDFJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "standard && jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bergos/rdf-path.git"
+  },
+  "keywords": [
+    "rdf",
+    "rdfjs",
+    "path"
+  ],
+  "author": "Thomas Bergwinkl <bergi@axolotlfarm.org> (https://www.bergnet.org/people/bergi/card#me)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bergos/rdf-path/issues"
+  },
+  "homepage": "https://github.com/bergos/rdf-path",
+  "dependencies": {
+    "@rdfjs/data-model": "^1.1.2",
+    "@rdfjs/term-set": "^1.0.0",
+    "@rdfjs/to-ntriples": "^1.0.2"
+  },
+  "devDependencies": {
+    "@rdfjs/dataset": "^1.0.1",
+    "@rdfjs/namespace": "^1.1.0",
+    "@rdfjs/parser-n3": "^1.1.3",
+    "jest": "^24.9.0",
+    "rdf-dataset-ext": "^1.0.0",
+    "rdf-ext": "^1.3.0",
+    "standard": "^14.0.0",
+    "tbbt-ld": "^1.1.0"
+  }
+}
