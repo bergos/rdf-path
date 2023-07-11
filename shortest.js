@@ -2,7 +2,7 @@ const neighbors = require('./neighbors')
 const Path = require('./Path')
 const TermSet = require('@rdfjs/term-set')
 
-function shortest (start, end, { blacklist, cutoff = Number.MAX_SAFE_INTEGER, dirIn, dirOut = true, followLiterals, whitelist } = {}) {
+function shortest (start, end, { blacklist, cutoff = Number.MAX_SAFE_INTEGER, dirIn, dirOut = true, followLiterals, whitelist, nodeBlacklist } = {}) {
   if (blacklist && whitelist) {
     throw new Error('blacklist or whitelist must be given, not both at the same time')
   }
@@ -14,7 +14,7 @@ function shortest (start, end, { blacklist, cutoff = Number.MAX_SAFE_INTEGER, di
     const next = []
 
     for (const path of todo) {
-      const edges = neighbors(path.end || start, { blacklist, dirIn, dirOut, followLiterals, whitelist })
+      const edges = neighbors(path.end || start, { blacklist, dirIn, dirOut, followLiterals, whitelist, nodeBlacklist })
 
       for (const edge of edges) {
         if (done.has(edge.end.term)) {
