@@ -1,6 +1,6 @@
 const Edge = require('./Edge')
 
-function neighbors (node, { blacklist, dirIn, dirOut = true, followLiterals, whitelist } = {}) {
+function neighbors (node, { blacklist, dirIn, dirOut = true, followLiterals, whitelist, nodeBlacklist } = {}) {
   if (blacklist && whitelist) {
     throw new Error('blacklist or whitelist must be given, not both at the same time')
   }
@@ -14,6 +14,10 @@ function neighbors (node, { blacklist, dirIn, dirOut = true, followLiterals, whi
       }
 
       if (whitelist && !whitelist.has(quad.predicate)) {
+        return
+      }
+
+      if (nodeBlacklist && (nodeBlacklist.has(quad.object)||nodeBlacklist.has(quad.subject))) {
         return
       }
 
@@ -32,6 +36,10 @@ function neighbors (node, { blacklist, dirIn, dirOut = true, followLiterals, whi
       }
 
       if (whitelist && !whitelist.has(quad.predicate)) {
+        return
+      }
+
+      if (nodeBlacklist && (nodeBlacklist.has(quad.object)||nodeBlacklist.has(quad.subject))) {
         return
       }
 
